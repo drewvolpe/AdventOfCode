@@ -1,8 +1,10 @@
 from functools import reduce
 
+DATA_FILE = "./AdventOfCode2022/data/day2.txt"
+
 def read_data1():
     rounds = []
-    with open("./data/day2.txt", "r") as f:
+    with open(DATA_FILE, "r") as f:
         for line in f.readlines():
             line = line.strip().replace('A', 'R').replace('X', 'R')
             line = line.replace('B', 'P').replace('Y', 'P')
@@ -12,7 +14,7 @@ def read_data1():
 
 def read_data2():
     rounds = []
-    with open("./data/day2.txt", "r") as f:
+    with open(DATA_FILE, "r") as f:
         for line in f.readlines():
             line = line.strip().replace('A', 'R').replace('X', 'L')
             line = line.replace('B', 'P').replace('Y', 'D')
@@ -37,7 +39,6 @@ def part1():
     shape_points = 0
     for r in rounds:
         result = round_result(r)
-        #        print("Round: %s Result: %s" % (r, result))
         if (result == 0):
             win_loss_points += 3
         elif (result > 0):

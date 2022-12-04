@@ -1,6 +1,6 @@
 from functools import reduce
 
-DATA_FILE = "./data/day3.txt"
+DATA_FILE = "./AdventOfCode2022/data/day3.txt"
 
 def read_data():
     sacks = []
@@ -9,7 +9,6 @@ def read_data():
             line = line.strip()
             halfway = round(len(line)/2)
             sacks.append([line[0:halfway], line[halfway:]])
-    
     return sacks
 
 
@@ -44,9 +43,6 @@ def part1():
             v -= 38  # 'A'
         dupe_vals.append(v)
 
-#    for x in dupe_vals:
-#        print("    %s " % x)
-
     total = reduce(lambda x,y: x+y, dupe_vals)
     print("total: %s" % total)
 
@@ -57,8 +53,6 @@ def part2():
     badges = []
     for x in range(0, len(sacks), 3):
         a,b,c = sacks[x:x+3]
-        print("a: %s  b: %s  c: %s" %( a, b,c))
-
         badge = set(a).intersection(b).intersection(c).pop()
         badges.append(badge)
     
@@ -67,7 +61,7 @@ def part2():
     badge_vals = []
     for b in badges:
         v = ord(b)
-        if v >= 97:  # 'a'
+        if v >= 97:  # 'a' in ascii
             v -= 96
         else:
             v -= 38  # 'A'
