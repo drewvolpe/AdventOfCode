@@ -1,4 +1,3 @@
-from functools import reduce
 import re
 
 DATA_FILE = "./AdventOfCode2022/data/day5.txt"
@@ -33,7 +32,6 @@ def read_data():
 
     return cols, moves
 
-
 def part1():
     cols, moves = read_data()
 
@@ -46,7 +44,6 @@ def part1():
 #    print(' cols: %s ' % (cols))
 
     print(' tops: %s' % ''.join([x[-1] for x in cols]))
-
 
 def part2():
     cols, moves = read_data()
