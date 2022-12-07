@@ -21,7 +21,7 @@ def read_data():
             elif line.startswith('move'):
                 moves.append([int(x) for x in re.findall('\d+', line)])
 
-
+    # swap rows for cols to make it easier to work with
     cols = []
     for x in range(0, num_cols):
         c = []
@@ -38,25 +38,21 @@ def part1():
     cols, moves = read_data()
 
     for m in moves:
-        a = m[1]
-        b = m[2]
+        a,b = m[1:3]
         num_crates = m[0]
         for i in range(0, num_crates):
             cols[b-1].append(cols[a-1].pop())
-
 #    print(' final cols:')
 #    print(' cols: %s ' % (cols))
 
-    print('')
-    print(' tops: %s' % [x[-1] for x in cols])
+    print(' tops: %s' % ''.join([x[-1] for x in cols]))
 
 
 def part2():
     cols, moves = read_data()
 
     for m in moves:
-        a = m[1]
-        b = m[2]
+        a, b = m[1:3]
         num_crates = m[0]
 
         crates_to_add = []
@@ -66,8 +62,7 @@ def part2():
         for c in crates_to_add:
             cols[b-1].append(c)
 
-    print('')
-    print(' tops: %s' % [x[-1] for x in cols])
+    print(' tops: %s' % ''.join([x[-1] for x in cols]))
 
 
 if __name__ == "__main__":
