@@ -8,7 +8,6 @@ def read_data():
 
     with open(DATA_FILE, "r") as f:
         for line in f.readlines():
-            print('line: %s' % line)
             l, r = line.strip().split('  ')
             l_list.append(int(l))
             r_list.append(int(r))
